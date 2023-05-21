@@ -31,6 +31,9 @@ import {
   forkify,
   airbnb,
   omnifood,
+  java,
+  shanshi,
+  reactmeals,
 } from "../assets";
 
 export const navLinks = [
@@ -85,10 +88,6 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
     name: "React JS",
     icon: reactjs,
   },
@@ -101,8 +100,16 @@ const technologies = [
     icon: tailwind,
   },
   {
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
     name: "git",
     icon: git,
+  },
+  {
+    name: "Java",
+    icon: java,
   },
   {
     name: "R",
@@ -175,8 +182,9 @@ const testimonials = [
 const projects = [
   {
     name: "Forkify食谱网",
-    description:
-      "Forkify是一个虚构的JavaScript应用程序，它与Forkify API互动，以获取和显示食谱的食物数据。用户可以搜索特定的食谱，并通过LocalStorage将其保存到收藏列表中。用户可以根据自己的需要轻松地增加或减少份量，并可以查看详细说明。你可以将自己的食谱添加到列表中，它将自动添加到你的书签中，并可通过搜索功能找到。",
+    description: `Forkify是一个虚构的JavaScript应用程序，它与Forkify API互动，以获取和显示食谱的食物数据。用户可以搜索特定的食谱，
+      并通过LocalStorage将其保存到收藏列表中。用户可以根据自己的需要轻松地增加或减少份量，并可以查看详细说明。
+      你可以将自己的食谱添加到列表中，它将自动添加到你的书签中，并可通过搜索功能找到。`,
     tags: [
       {
         name: "HTML",
@@ -219,6 +227,22 @@ const projects = [
     web_link: "https://airbnb-clone-fawn-two.vercel.app/",
   },
   {
+    name: "ReactMeals订餐网站",
+    description: `ReactMeals是一个订餐应用程序，在这你可以查看菜单，将物品添加到购物车，改变金额，并进行订购。
+    为了向用户展现菜单并记录用户订单，我采用Firebase作为DB来存储菜单以及新创建的订单，并使用React.js作为前端。
+    同时，使用了多个React Hooks如useState, useEffect, useContext等实现菜单加载以及订单数据在组件间的传输。
+    `,
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: reactmeals,
+    source_code_link: "https://github.com/RealChenyuan/food-order-project",
+    web_link: "https://reactmeals-chenyuan.netlify.app/",
+  },
+  {
     name: "Omnifood健康食品配送网站",
     description: `Omnifood是一个模拟在线餐厅服务的网站项目，提供菜单浏览、在线订购、用户账户管理等功能。
     该项目采用了HTML、CSS、JavaScript等技术进行前端开发。Omnifood的设计风格简洁大方，
@@ -238,8 +262,31 @@ const projects = [
       },
     ],
     image: omnifood,
-    source_code_link: "https://github.com/",
+    source_code_link: "",
     web_link: "https://omnifood-chen.netlify.app/",
+  },
+  {
+    name: "“擅食”健康饮食推荐系统",
+    description: `擅食APP是一款帮助用户进行健康饮食的软件。整个APP共有为五个模块，分别是个性化食谱推荐、
+    饮食记录、营养摄入分析、个人主页、食谱展示模块。用户可以记录日常三餐的饮食，并获取当日的营养素摄入分析报告。
+    此外，系统将会依据用户身体信息计算出各营养素的推荐摄入量，并利用多目标优化模型得到食物推荐食用量供用户参考。`,
+    tags: [
+      {
+        name: "Java",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Python",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: shanshi,
+    source_code_link: "",
+    web_link: "",
   },
 ];
 

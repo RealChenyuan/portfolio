@@ -18,16 +18,37 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [hasError, setHasError] = useState({
+    name: true,
+    email: true,
+    message: true,
+  });
+  const [isFocus, setIsFocus] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
   const [loading, setLoading] = useState(false);
+
+  const btnIsDisabled = hasError.name || hasError.email || hasError.message;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (value === "") {
+      setHasError((prev) => ({ ...prev, [name]: true }));
+    } else {
+      setHasError((prev) => ({ ...prev, [name]: false }));
+    }
 
     setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (hasError.name || hasError.email || hasError.message) return;
+
     setLoading(true);
 
     emailjs
@@ -82,11 +103,17 @@ const Contact = () => {
               type="text"
               name="name"
               value={form.name}
+              onBlur={() => {
+                setIsFocus((prev) => ({ ...prev, name: true }));
+              }}
               onChange={handleChange}
               placeholder="请输入您的名字"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary
                text-white rounded-lg outline-none border-none font-medium"
             />
+            {hasError.name && isFocus.name && (
+              <p className=" text-red-500 mt-1">名字不能为空</p>
+            )}
           </label>
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">您的邮箱</span>
@@ -95,10 +122,16 @@ const Contact = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
+              onBlur={() => {
+                setIsFocus((prev) => ({ ...prev, email: true }));
+              }}
               placeholder="请输入您的邮箱"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary
                text-white rounded-lg outline-none border-none font-medium"
             />
+            {hasError.email && isFocus.email && (
+              <p className=" text-red-500 mt-1">邮箱不能为空</p>
+            )}
           </label>
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">您的建议</span>
@@ -107,15 +140,22 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
+              onBlur={() => {
+                setIsFocus((prev) => ({ ...prev, message: true }));
+              }}
               placeholder="请输入您的建议"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary
                text-white rounded-lg outline-none border-none font-medium"
             />
+            {hasError.message && isFocus.message && (
+              <p className=" text-red-500 mt-1">内容不能为空</p>
+            )}
           </label>
 
           <button
             type="submit"
-            className="bg-white py-3 px-8 outline-none w-fit text-tertiary font-bold shadow-md shadow-primary rounded-xl mx-auto"
+            className="bg-white py-3 px-8 outline-none w-fit text-tertiary font-bold shadow-md shadow-primary rounded-xl mx-auto disabled:opacity-80 disabled:cursor-not-allowed"
+            disabled={btnIsDisabled}
           >
             {loading ? "Sending..." : "Send"}
           </button>

@@ -23,6 +23,7 @@ import threejs from "./tech/threejs.svg";
 import r from "./tech/R.png";
 import python from "./tech/python.png";
 import mysql from "./tech/mysql.png";
+import java from "./tech/java.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -37,6 +38,8 @@ import tripguide from "./tripguide.png";
 import forkify from "./forkify.png";
 import airbnb from "./airbnb.png";
 import omnifood from "./omnifood.png";
+import shanshi from "./shanshi.png";
+import reactmeals from "./reactmeals.png";
 
 import self from "./self.jpg";
 
@@ -63,6 +66,7 @@ export {
   typescript,
   threejs,
   r,
+  java,
   self,
   airbnb,
   python,
@@ -78,4 +82,6 @@ export {
   tripguide,
   forkify,
   omnifood,
+  shanshi,
+  reactmeals,
 };
